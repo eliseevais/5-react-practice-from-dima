@@ -49,7 +49,7 @@ export const UncontrolledOnOff = (props: PropsType) => {
   const offClicked = () => {
     setOn(false)
     props.onChange(false)
-  }
+  };
 
   return (
     <div>

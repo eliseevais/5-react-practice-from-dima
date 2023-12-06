@@ -40,15 +40,19 @@ export const OnOff = (props: PropsType) => {
 
   };
 
+  const onClicked = () => {
+    props.onChange(true)
+  };
+
+  const offClicked = () => {
+    props.onChange(false)
+  }
+
   return (
     <div>
-      <div style={onStyle} onClick={() => {
-        props.onChange(true)
-      }}>On
+      <div style={onStyle} onClick={onClicked}>On
       </div>
-      <div style={offStyle} onClick={() => {
-        props.onChange(false)
-      }}>Off
+      <div style={offStyle} onClick={offClicked}>Off
       </div>
       <div style={indicatorStyle}></div>
     </div>
