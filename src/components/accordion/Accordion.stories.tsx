@@ -1,45 +1,43 @@
-import React from 'react';
+import type {Meta, StoryObj} from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
-type AccordionPropsType = {
-  titleValue: string;
-  collapsed: boolean;
-  onChange: () => void;
-}
-export const Accordion = (props: AccordionPropsType) => {
-  console.log('Accordion is rendering');
+import {Accordion} from './Accordion';
+import React, {useState} from "react";
 
-  return (
-    <div>
-      <AccordionTitle title={props.titleValue}
-                      onChange={props.onChange}
-      />
-      { !props.collapsed && <AccordionBody />}
-    </div>
-  );
+export default {
+  component: Accordion,
 };
 
-type AccordionTitlePropsType = {
-  title: string;
-  onChange: () => void;
-};
+const onChangeHandler = action('onChangeHandler')
 
-function AccordionTitle(props: AccordionTitlePropsType) {
-  console.log('AccordionTitle is rendering');
+export const CollapsedAccordion = () => {
   return (
-    <h3 onClick={props.onChange}>
-      ---{props.title}---
-    </h3>
+    <Accordion titleValue={'Menu Collapsed Accordion'}
+               collapsed={true}
+               onChange={onChangeHandler}
+    />
   )
 };
 
-function AccordionBody() {
-  console.log('AccordionBody is rendering');
+export const OpenedAccordion = () => {
   return (
-    <ul>
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
-    </ul>
+    <Accordion titleValue={'Menu Open Accordion'}
+               collapsed={false}
+               onChange={() => {
+               }}
+    />
   )
-}
+};
 
+export const DemoAccordion = () => {
+
+  const [collapsed, setCollapsed] = useState(false)
+  return (
+    <Accordion titleValue={'Menu Demo Accordion'}
+               collapsed={collapsed}
+               onChange={() => {
+                 setCollapsed(!collapsed)
+               }}
+    />
+  )
+};
