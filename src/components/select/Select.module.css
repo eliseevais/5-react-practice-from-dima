@@ -1,0 +1,33 @@
+.select .main {
+  border: 1px solid black;
+  display: block;
+  min-height: 20px;
+  min-width: 60px;
+  max-width: 90px;
+}
+
+/*.select .main {*/
+/*  border: 1px solid black;*/
+/*  display: inline-block;*/
+/*  min-height: 20px;*/
+/*  min-width: 40px;*/
+/*}*/
+
+.item {
+  /*position: absolute;*/
+  display: block;
+  padding: 5px;
+  border: 1px solid blue;
+  max-width: 80px;
+}
+
+/*.item {*/
+/*  position: absolute;*/
+/*  padding: 5px;*/
+/*  border: 1px solid blue;*/
+/*}*/
+
+.item.selected {
+  background-color: blue;
+  color: white;
+}

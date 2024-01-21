@@ -21,10 +21,10 @@ function App() {
       <UncontrolledOnOff onChange={setSwitchOn}/>{switchOn.toString()}
       {/*<OnOff on={switchOn} onChange={setSwitchOn}/>*/}
 
-      <Accordion titleValue={'Menu'}
-                 collapsed={accordionCollapsed}
-                 onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}
-      />
+      {/*<Accordion titleValue={'Menu'}*/}
+      {/*           collapsed={accordionCollapsed}*/}
+      {/*           onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}*/}
+      {/*/>*/}
 
       <UncontrolledAccordion titleValue={'UncontrolledMenu'}/>
 
