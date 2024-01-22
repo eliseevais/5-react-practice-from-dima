@@ -1,13 +1,26 @@
-import React, {useState} from 'react';
+import React, {useReducer, useState} from 'react';
 
 type UncontrolledAccordionPropsType = {
   titleValue: string;
   //collapsed: boolean;
+};
+
+type ActionPropsType = {
+  type: string
 }
+
+const reducer = (state: boolean, action: ActionPropsType) => {
+  if (action.type === 'SET-COLLAPSED') {
+    return !state;
+  }
+
+  return state;
+};
+
 export const UncontrolledAccordion = (props: UncontrolledAccordionPropsType) => {
   console.log('Accordion is rendering');
 
-  let [collapsed, setCollapsed] = useState(true);
+  let [collapsed, dispatch] = useReducer(reducer, false);
 
   return (
     <div>
@@ -16,6 +29,20 @@ export const UncontrolledAccordion = (props: UncontrolledAccordionPropsType) => 
     </div>
   );
 };
+
+// export const UncontrolledAccordion = (props: UncontrolledAccordionPropsType) => {
+//   console.log('Accordion is rendering');
+//
+//   let [collapsed, setCollapsed] = useState(true);
+//
+//   return (
+//     <div>
+//       <UncontrolledAccordionTitle title={props.titleValue} onClick={() => setCollapsed(!collapsed)} />
+//       { !collapsed && <UncontrolledAccordionBody />}
+//     </div>
+//   );
+// };
+
 
 type UncontrolledAccordionTitlePropsType = {
   title: string;

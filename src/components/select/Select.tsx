@@ -60,7 +60,7 @@ export const Select = (props: SelectPropsType) => {
         </span>
         {
           active &&
-          <div className={styles.item}>
+          <div className={styles.items}>
             {props.items.map(item => <div
               className={styles.item + " " + (hoveredItem === item ? styles.selected : "")}
               onMouseEnter={() => {
