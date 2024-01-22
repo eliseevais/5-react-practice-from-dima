@@ -5,10 +5,8 @@ type PropsType = {
   onChange: (on: boolean) => void;
 };
 
-export const OnOff = (props: PropsType) => {
-
+const OnOffSecret = (props: PropsType) => {
   console.log('on' + props.on);
-
   console.log('onBTN:' + props.on);
 
   const onStyle = {
@@ -43,7 +41,6 @@ export const OnOff = (props: PropsType) => {
   const onClicked = () => {
     props.onChange(true)
   };
-
   const offClicked = () => {
     props.onChange(false)
   }
@@ -58,4 +55,6 @@ export const OnOff = (props: PropsType) => {
     </div>
   );
 };
+
+export const OnOff = React.memo(OnOffSecret)
 

@@ -6,11 +6,10 @@ type PropsType = {
   defaultOn?: boolean;
 };
 
-export const UncontrolledOnOff = (props: PropsType) => {
+const UncontrolledOnOffSecret = (props: PropsType) => {
 
   console.log('UncontrolledOnOff is rendering');
   let [on, setOn] = useState(props.defaultOn ? props.defaultOn : false);
-
   console.log('onBTN:' + on);
 
   const onStyle = {
@@ -46,7 +45,6 @@ export const UncontrolledOnOff = (props: PropsType) => {
     setOn(true)
     props.onChange(true)
   };
-
   const offClicked = () => {
     setOn(false)
     props.onChange(false)
@@ -62,4 +60,6 @@ export const UncontrolledOnOff = (props: PropsType) => {
     </div>
   );
 };
+
+export const UncontrolledOnOff = React.memo(UncontrolledOnOffSecret)
 

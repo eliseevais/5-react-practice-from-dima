@@ -6,7 +6,7 @@ type UncontrolledAccordionPropsType = {
   //collapsed: boolean;
 };
 
-export const UncontrolledAccordion = (props: UncontrolledAccordionPropsType) => {
+const UncontrolledAccordionSecret = (props: UncontrolledAccordionPropsType) => {
   console.log('Accordion is rendering');
 
   let [state, dispatch] = useReducer(reducer, {collapsed: false});
@@ -19,6 +19,8 @@ export const UncontrolledAccordion = (props: UncontrolledAccordionPropsType) => 
     </div>
   );
 };
+
+export const UncontrolledAccordion = React.memo(UncontrolledAccordionSecret)
 
 // export const UncontrolledAccordion = (props: UncontrolledAccordionPropsType) => {
 //   console.log('Accordion is rendering');
