@@ -7,7 +7,7 @@ export default {
 type NewMessagesCounterPropsType = {
   count: number
 };
-type UsersPropsType = {
+export type UsersPropsType = {
   users: Array<string>
 };
 
