@@ -1,5 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, {MouseEventHandler, useEffect, useState} from "react";
 import styles from './MyClock.module.css';
+import {MyClockAnalog} from "./MyClockAnalog";
+import {Simulate} from "react-dom/test-utils";
+import toggle = Simulate.toggle;
 
 type MyClockPropsType = {};
 
@@ -26,12 +29,34 @@ export const MyClock: React.FC = (props: MyClockPropsType) => {
   const hoursString = getTwoDigitsString(date.getHours());
 
   return (
-    <div className={styles.clock}>
+    <div className={styles.myClock}>
       <span>{hoursString}</span>
       :
       <span>{minutesString}</span>
       :
       <span>{secondsString}</span>
+    </div>
+  )
+}
+
+type ClockPropsType = {
+
+}
+
+export const Clock = (props: ClockPropsType) => {
+
+  const [isAnalogValue, setIsAnalogValue] = useState<boolean>(true);
+  const onCallbackIsAnalog = () => {
+    setIsAnalogValue(!isAnalogValue)
+  }
+
+  return (
+    <div className={styles.wrapper}>
+      <button onClick={onCallbackIsAnalog}>change view mode</button>
+      {isAnalogValue
+        ? <MyClockAnalog/>
+        : <MyClock/>
+      }
     </div>
   )
 }

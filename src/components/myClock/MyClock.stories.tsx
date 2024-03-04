@@ -1,13 +1,16 @@
-import React, {useEffect, useState} from "react";
-import {MyClock} from "./MyClock";
+import React from "react";
+import {Clock} from "./MyClock";
 
 export default {
   title: 'MyClock',
-  component: MyClock
+  component: Clock
 };
-export const MyClockBaseExample = () => {
 
+type ClockPropsType = {
+
+}
+export const MyClockBaseExample = (props: ClockPropsType) => {
   return (
-    <MyClock/>
+    <Clock/>
   )
 };
