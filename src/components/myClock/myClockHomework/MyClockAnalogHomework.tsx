@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from "react";
-import styles from './MyClockAnalog.module.css';
+import styles from './MyClockAnalogHomework.module.css';
 
 type MyClockPropsType = {};
 
-export const MyClockAnalog: React.FC = (props: MyClockPropsType) => {
+export const MyClockAnalogHomework: React.FC = (props: MyClockPropsType) => {
   const [date, setDate] = useState(new Date());
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      console.log('MyClock tik-tik')
+      console.log('MyClockHomework tik-tik')
       setDate(new Date())
     }, 1000)
 
